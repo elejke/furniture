@@ -1,4 +1,4 @@
-FROM python:3.8-alpine
+FROM elejke/furniture
 
 RUN apk add build-base python3-dev jpeg-dev zlib-dev
 
