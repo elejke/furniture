@@ -1,6 +1,7 @@
 FROM elejke/furniture_bot
 
-RUN apk add build-base python3-dev jpeg-dev zlib-dev
+RUN apk add 
+RUN apk add build-base python3-dev jpeg-dev zlib-dev gcc libffi-dev openssl-dev
 
 WORKDIR /app
 
