@@ -1,0 +1,19 @@
+name: Build image using Github Actions
+on:
+  push:
+    branches:
+      - master
+      - code_transfer
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: crazy-max/ghaction-docker-buildx@v1
+    - run: |
+        docker login -u elejke -p ${{ secrets.DOCKERHUB_PASSWORD }}
+    - run: |
+        docker buildx build . \
+          --platform linux/arm/v7 \
+          --tag elejke/furniture_bot:latest \
+          --push
